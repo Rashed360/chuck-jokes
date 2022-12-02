@@ -75,6 +75,7 @@ nav {
 			color: $clr-light-100;
 
 			&:last-child {
+				cursor: pointer;
 				display: flex;
 				align-items: center;
 				background-color: $clr-brown-200;
@@ -164,6 +165,42 @@ header {
 			width: 24px;
 			height: 24px;
 			fill: $clr-light-100;
+		}
+	}
+}
+
+/*---- Footer ----*/
+footer {
+	display: flex;
+	flex-direction: column;
+	padding: 62px 16px;
+	background: url(./assets/footer_image.png) no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	p {
+		padding-bottom: 14px;
+		max-width: 200px;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 20px;
+		text-transform: uppercase;
+		color: $clr-light-100;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 17px;
+		text-transform: uppercase;
+		color: #cfb995;
+
+		svg {
+			margin-left: 8px;
+			font-size: 21px;
 		}
 	}
 }

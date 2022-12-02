@@ -2,17 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /*---- Variables ----*/
-:root {
-	--clr-accent-dark: #5c2dd5;
-	--clr-accent-light: #7945ff;
+$clr-light-100: #ffffff;
+$clr-light-200: #f9f9f9;
 
-	--clr-primary-dark: #000000;
-	--clr-primary-mid: #929292;
-	--clr-primary-light: #ffffff;
+$clr-dark-100: #b2b2b2;
+$clr-dark-200: #5e5e5e;
+$clr-dark-500: #303030;
 
-	--clr-player-home: #fd6886;
-	--clr-player-away: #ffce68;
-}
+$clr-red-100: #ff5b5b;
+$clr-sykblue-100: #57dbe6;
+
+$clr-brown-100: #d0ba93;
+$clr-brown-200: #cfb995;
+
+$clr-orange-100: #ffdf5b;
+$clr-orange-200: #ffbe5b;
+$clr-orange-300: #ff915b;
+
+$clr-green-100: #8fe360;
+$clr-green-200: #57e690;
 
 /*---- Reset CSS ----*/
 *,
@@ -40,13 +48,59 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
-	background-color: var(--clr-accent-light);
+	background-color: $clr-light-200;
 }
 
 img,
 svg {
 	max-width: 100%;
-	display: block;
 }
 
-/*---- App ----*/
+/*---- NavBar ----*/
+nav {
+	background-color: $clr-dark-500;
+
+	ul {
+		list-style: none;
+		display: flex;
+		justify-content: flex-end;
+
+		li {
+			padding: 18px 16px;
+			margin: 0px 16px;
+
+			&:last-child {
+				background-color: $clr-brown-200;
+
+				a {
+					display: flex;
+					align-items: center;
+
+					span {
+						margin: 0 32px -5px 8px;
+					}
+				}
+
+				&:hover {
+					background-color: $clr-brown-100;
+				}
+			}
+
+			a {
+				text-decoration: none;
+				font-weight: 600;
+				font-size: 15px;
+				line-height: 18px;
+				text-transform: uppercase;
+				color: $clr-light-100;
+			}
+		}
+	}
+}
+
+/*---- NavBar ----*/
+
+/*---- Responsive Classes ----*/
+.container {
+	margin: 0 165px;
+}

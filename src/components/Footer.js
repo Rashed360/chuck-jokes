@@ -6,7 +6,7 @@ const Footer = () => {
 		<footer>
 			<div className='container'>
 				<p>Got jokes? Get paid for submitting!</p>
-				<a href='#'>
+				<a className='link' href='#'>
 					<span>Submit Joke</span>
 					<BsArrowRight />
 				</a>

@@ -13,11 +13,9 @@ const NavBar = () => {
 						<a href='#'>Sonderangebote</a>
 					</li>
 					<li>
-						<a href='#'>
-							<FaUser />
-							<span>Mein Berrich</span>
-							<FaCaretDown />
-						</a>
+						<FaUser />
+						<span>Mein Berrich</span>
+						<FaCaretDown />
 					</li>
 				</ul>
 			</div>

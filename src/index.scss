@@ -257,7 +257,7 @@ svg {
 nav {
 	background-color: $clr-dark-500;
 
-	ul {
+	ul#navbar {
 		list-style: none;
 		display: flex;
 		justify-content: flex-end;
@@ -272,6 +272,7 @@ nav {
 			color: $clr-light-100;
 
 			&:last-child {
+				position: relative;
 				cursor: pointer;
 				display: flex;
 				align-items: center;
@@ -290,6 +291,66 @@ nav {
 				text-decoration: none;
 				color: $clr-light-100;
 			}
+		}
+	}
+	ul#options {
+		display: none;
+		list-style-type: none;
+		position: absolute;
+		top: 74px;
+		right: 0;
+		padding: 0 7px;
+		min-width: 220px;
+		background: $clr-light-100;
+		border: 1px solid #e8e8e8;
+		border-radius: 2px;
+
+		.active {
+			display: block;
+		}
+
+		li {
+			padding: 7px;
+			margin: 0;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 20px;
+			text-transform: none;
+			color: $clr-dark-200;
+			border-bottom: 1px solid #d1d1d1;
+
+			&:hover {
+				color: $clr-dark-500;
+			}
+
+			&:last-child {
+				font-weight: 700;
+				font-size: 14px;
+				line-height: 20px;
+				color: #cfb995;
+				background: none;
+				border-bottom: none;
+
+				&:hover {
+					color: #b19d7e;
+					background: none;
+				}
+			}
+
+			a {
+				text-decoration: none;
+				color: $clr-light-100;
+			}
+		}
+
+		&::before {
+			position: absolute;
+			content: '';
+			width: 15px;
+			height: 7px;
+			right: 22px;
+			top: -7px;
+			background: #ffffff;
 		}
 	}
 }

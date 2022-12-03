@@ -20,7 +20,12 @@ const AllJokes = () => {
 					</button>
 				</div>
 				<div className='contents'>
-					<div className='tag'>Social Jokes</div>
+					<div className='card-tags'>
+						<div className='tag'>
+							<span>Social Jokes</span>
+						</div>
+					</div>
+					{/* <div className='tag'>Social Jokes</div> */}
 					<div className='jokes'>
 						<JokeCard />
 						<JokeCard />

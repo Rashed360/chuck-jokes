@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 import { BsArrowRight } from 'react-icons/bs'
 import { MdBolt } from 'react-icons/md'
 
@@ -17,10 +17,10 @@ const JokeCard = () => {
 				</p>
 			</div>
 			<div className='card-footer'>
-				<a className='link' href='#'>
+				<Link className='link' to='/joke/1'>
 					<span>See Stats</span>
 					<BsArrowRight />
-				</a>
+				</Link>
 			</div>
 		</div>
 	)

@@ -353,7 +353,7 @@ header {
 			}
 		}
 
-		svg {
+		svg.float {
 			cursor: pointer;
 			position: absolute;
 			top: 50%;
@@ -362,6 +362,70 @@ header {
 			width: 24px;
 			height: 24px;
 			fill: $clr-light-100;
+		}
+
+		.search-results {
+			display: none;
+			position: relative;
+			z-index: 99;
+			padding: 0 16px;
+			margin-top: 23px;
+
+			background: $clr-light-100;
+			border: 1px solid #ecebe9;
+			box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.15);
+			border-radius: 2px;
+
+			&.active {
+				display: block;
+			}
+
+			div {
+				padding: 16px 0;
+				border-bottom: 1px solid #d1d1d1;
+				font-weight: 400;
+				font-size: 15px;
+				line-height: 22px;
+
+				&:last-child {
+					border-bottom: none;
+				}
+
+				span {
+					color: #a3a3a3;
+				}
+				&:hover {
+					span {
+						color: $clr-dark-500;
+					}
+				}
+
+				svg {
+					margin-bottom: -3px;
+					margin-right: 16px;
+					font-size: 17px;
+
+					&.popular {
+						color: $clr-sykblue-100;
+					}
+					&.trending {
+						color: $clr-orange-200;
+					}
+					&.epic {
+						color: $clr-red-100;
+					}
+				}
+			}
+
+			&::before {
+				position: absolute;
+				content: '';
+				width: 15px;
+				height: 7px;
+				left: 12px;
+				top: -7px;
+				background: #ffffff;
+			}
 		}
 	}
 }

@@ -45,7 +45,7 @@ html:focus-within {
 
 html,
 body {
-	// height: 100%;
+	height: 100%;
 }
 
 body {
@@ -793,9 +793,6 @@ footer {
 @media (max-width: 576px) {
 	.container {
 		margin: 0 10px;
-	}
-	.btn {
-		min-width: 100%;
 	}
 	header .header-contents .input-box {
 		width: 100%;

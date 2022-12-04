@@ -13,7 +13,7 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path='/' element={<AllJokes />} />
-				<Route path='/joke/:id' element={<SingleJoke />} />
+				<Route path='/joke/:jokeId' element={<SingleJoke />} />
 				<Route element={<NoMatch />} />
 			</Routes>
 			<Footer />

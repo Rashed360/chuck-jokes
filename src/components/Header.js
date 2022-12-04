@@ -55,7 +55,7 @@ const Header = () => {
 								results.slice(0, 4).map((itm, idx) => (
 									<div key={idx}>
 										<MdBolt className='trending' />
-										<Link to={`/joke/${itm.url.split('/')[itm.url.split('/').length - 1]}`}>
+										<Link to={`/joke/${itm.id}`}>
 											<span>
 												{itm.categories.length > 0 ? itm.categories[0] : 'uncategorized'}:{' '}
 												{itm.value.slice(0, 30)}

@@ -9,18 +9,18 @@ const SingleJoke = () => {
 	const [loading, setLoading] = useState(false)
 	const [joke, setJoke] = useState({})
 	const navigate = useNavigate()
-	const { id } = useParams()
+	const { jokeId } = useParams()
 
 	useEffect(() => {
 		const loadPosts = async () => {
 			setLoading(true)
-			const res = await axios.get(`https://api.chucknorris.io/jokes/${id}`)
+			const res = await axios.get(`https://api.chucknorris.io/jokes/${jokeId}`)
 			console.log(res.data)
 			setJoke(res.data)
 			setLoading(false)
 		}
 		loadPosts()
-	}, [id])
+	}, [jokeId])
 
 	return (
 		<section id='singleJoke'>
@@ -44,7 +44,7 @@ const SingleJoke = () => {
 									<div className='card-tags'>
 										<div className='tag'>
 											<BsDot />
-											<span> Jokes</span>
+											<span>{joke.categories?.length > 0 ? joke.categories[0] : 'uncategorized'} Jokes</span>
 										</div>
 										<div className='tag no-border trending'>
 											<BsDot />

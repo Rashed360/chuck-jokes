@@ -4,9 +4,10 @@ import { BsArrowDown } from 'react-icons/bs'
 import JokeCard from './JokeCard'
 
 const AllJokes = () => {
-	const [count, setCount] = useState(0)
-	const [variant, setVariant] = useState(['red', 'orange', 'gold', 'yellow', 'lime', 'green', 'skyblue'])
 	const [categories, setCategories] = useState([])
+	const [jokes, setJokes] = useState([])
+	const [displayJokes, setDisplayJokes] = useState([])
+	const variant = ['red', 'orange', 'gold', 'yellow', 'lime', 'green', 'skyblue']
 
 	const fetchCategories = async () => {
 		await axios
@@ -21,13 +22,31 @@ const AllJokes = () => {
 			})
 	}
 
+	const fetchJokes = async () => {
+		await axios
+			.get('https://api.chucknorris.io/jokes/search?query=all')
+			.then(response => {
+				const data = response.data.result
+				console.log(data)
+				setJokes(data)
+			})
+			.catch(error => {
+				console.log(error.response)
+			})
+	}
+
 	const getVariant = () => {
 		return 'btn btn-' + variant[Math.floor(Math.random() * variant.length)]
 	}
 
 	useEffect(() => {
 		fetchCategories()
+		fetchJokes()
 	}, [])
+
+	useEffect(() => {
+		setDisplayJokes(jokes.slice(0, 6))
+	}, [jokes])
 
 	return (
 		<section id='allJokes'>
@@ -50,15 +69,17 @@ const AllJokes = () => {
 							<span>Social Jokes</span>
 						</div>
 					</div>
-					{/* <div className='tag'>Social Jokes</div> */}
-					<div className='jokes'>
-						<JokeCard />
-						<JokeCard />
-						<JokeCard />
-						<JokeCard />
-						<JokeCard />
-						<JokeCard />
-					</div>
+					{displayJokes?.length > 0 ? (
+						<div className='jokes'>
+							{displayJokes.map((itm, idx) => (
+								<JokeCard key={idx} joke={itm} />
+							))}
+						</div>
+					) : (
+						<div className='jokes'>
+							<p>Loading...</p>
+						</div>
+					)}
 					<div className='footer'>
 						<button className='btn btn-outline'>
 							<span>View More</span>

@@ -2,22 +2,19 @@ import { Link } from 'react-router-dom'
 import { BsArrowRight } from 'react-icons/bs'
 import { MdBolt } from 'react-icons/md'
 
-const JokeCard = () => {
+const JokeCard = ({ joke }) => {
+	const { value, id, categories } = joke
 	return (
 		<div className='card'>
 			<div className='card-header'>
 				<MdBolt />
-				<h2>Lawyer Joke</h2>
+				<h2>{categories.length > 0 ? categories[0] : 'uncategorized'} Joke</h2>
 			</div>
 			<div className='card-body'>
-				<p>
-					A lawyer dies and goes to Heaven. "There must be some mistake, "the lawyer argues. "I'm too young to
-					die. I'm only 55. ""Fifty-five?" says Saint Peter. "No, according to out calculations, you're 82.""
-					How'd you get that?" the lawyer asks. Answers St. Peter, "We added up your time sheets."
-				</p>
+				<p>{value}</p>
 			</div>
 			<div className='card-footer'>
-				<Link className='link' to='/joke/1'>
+				<Link className='link' to={`/joke/${id}`}>
 					<span>See Stats</span>
 					<BsArrowRight />
 				</Link>
@@ -27,3 +24,7 @@ const JokeCard = () => {
 }
 
 export default JokeCard
+
+// A lawyer dies and goes to Heaven. "There must be some mistake, "the lawyer argues. "I'm too young to
+// 					die. I'm only 55. ""Fifty-five?" says Saint Peter. "No, according to out calculations, you're 82.""
+// 					How'd you get that?" the lawyer asks. Answers St. Peter, "We added up your time sheets."

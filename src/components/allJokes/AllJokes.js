@@ -1,19 +1,44 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { BsArrowDown } from 'react-icons/bs'
 import JokeCard from './JokeCard'
 
 const AllJokes = () => {
+	const [count, setCount] = useState(0)
+	const [variant, setVariant] = useState(['red', 'orange', 'gold', 'yellow', 'lime', 'green', 'skyblue'])
+	const [categories, setCategories] = useState([])
+
+	const fetchCategories = async () => {
+		await axios
+			.get('https://api.chucknorris.io/jokes/categories')
+			.then(response => {
+				const data = response.data
+				console.log(data)
+				setCategories(data)
+			})
+			.catch(error => {
+				console.log(error.response)
+			})
+	}
+
+	const getVariant = () => {
+		return 'btn btn-' + variant[Math.floor(Math.random() * variant.length)]
+	}
+
+	useEffect(() => {
+		fetchCategories()
+	}, [])
+
 	return (
 		<section id='allJokes'>
 			<div className='container'>
 				<div className='categories'>
-					<button className='btn btn-red'>Adult Jokes</button>
-					<button className='btn btn-orange'>Adult Jokes</button>
-					<button className='btn btn-gold'>Adult Jokes</button>
-					<button className='btn btn-yellow'>Adult Jokes</button>
-					<button className='btn btn-lime'>Adult Jokes</button>
-					<button className='btn btn-green'>Adult Jokes</button>
-					<button className='btn btn-skyblue'>Adult Jokes</button>
+					{categories.length !== 0 &&
+						categories.slice(0, 8).map((itm, idx) => (
+							<button className={getVariant()} key={idx}>
+								{itm} Jokes
+							</button>
+						))}
 					<button className='btn btn-outline'>
 						<span>View All</span>
 						<BsArrowDown className='float' />
